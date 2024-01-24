@@ -1,0 +1,116 @@
+:root {
+    --Primario: hsl(291, 64%, 42%);
+    --Primario__Oscuro: hsl(291, 80%, 34%);
+    --Secundario: hsl(48, 100%, 50%);
+    --Secundario__Oscuro: hsl(48, 98%, 46%);
+    --Blanco: hsl(0, 0%, 100%);
+    --Negro: hsl(0, 0%, 0%);
+    --Fuente__Principal: 'Staatliches', cursive;
+}
+
+/*UTILIDADES GLOBLAES*/
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+a{
+    text-decoration: none;
+}
+link{
+    display: none;
+}
+body{
+    background-color: var(--Primario);
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+p{
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--Blanco);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PT Sans',sans-serif;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul{
+    margin: 0;
+    padding: 0;
+}
+h3{
+    text-align: center;
+    color: var(--Secundario);
+    font-family: var(--Fuente__Principal);
+    font-size: 4rem;
+}
+img{
+    width:250px;
+}
+/*---------------------------------------------------------*/
+/*----------ESTILOS DE LA PAGINA---------------------------*/
+/*---------------------------------------------------------*/
+.Container__Encabezado{
+    text-align: center;
+}
+.Container__Encabezdo--Titulo{
+    text-transform: uppercase;
+    color: hsl(0, 0%, 100%);
+    font-weight: 300;
+    font-size: 60px;
+    padding-top: 5rem;
+}
+.Container__Encabezdo--Subtitulo{
+    text-transform: uppercase;
+    color: hsl(46, 90%, 56%);
+    font-size:90px;
+    font-weight:600;
+    margin-top: -55px;
+}
+.Contenerdor__Principal{
+    max-width: min(90%,120rem);
+    margin: 0 auto;
+}
+/*----------------------------------------------------------------------------*/
+/*-------------ESTILOS EN LA CONTENEDOR GRIP----------------------*/
+/*----------------------------------------------------------------------------*/
+.Grid{
+    display: grid;
+}
+@media (min-width: 500px) {
+    .Grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+@media (min-width: 768px) {
+    .Grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+/*----------------------------------------------------------------------------*/
+/*-------------------ESTILOS EN LOS PRODUCTOS-----------------------*/
+/*----------------------------------------------------------------------------*/
+.Producto{
+    background-color: var(--Primario__Oscuro);
+    padding: 1rem;
+}
+.Nombre__Producto{
+    font-size: 1rem;
+}
+.Precio__Producto{
+    font-size: 1rem;
+    color: var(--Secundario);
+}
+.Nombre__Producto,
+.Precio__Producto{
+    font-family: var(--Fuente__Principal);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
