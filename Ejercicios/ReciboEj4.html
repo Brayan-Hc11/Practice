@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar reporte</title>
+    <script>
+
+
+window.onload = function() {
+    requesitos();
+};
+
+function requesitos(){
+    alert("Señor usuario, por favor ingrese los siguientes datos para poder generar su reporte mensual")
+    //Solicitud de datos al usuario
+    //---------------------------------------------------------------------------------------------------------------------------------------------//
+    var documento;
+        while(!documento){
+            documento = prompt("A continuación ingrese su número y tipo de documento: ");
+            //Verificar si el usuario ha dejado el campo en blanco
+            if(!documento){
+                alert("Recuede de cada campo debe tener el dato requerido.");
+            }    
+        }
+    //---------------------------------------------------------------------------------------------------------------------------------------------//
+    var nombre;
+        while(!nombre){
+            nombre = prompt("A continuación ingrese nombre completo: ");
+            //Verificar si el usuario ha dejado el campo en blanco
+            if(!nombre){
+                alert("Recuede de cada campo debe tener el dato requerido.");
+            }    
+        }
+     //---------------------------------------------------------------------------------------------------------------------------------------------//
+     var sueldo;
+        while(!sueldo){
+            sueldo = prompt("A continuación ingrese el valor de su sueldo actual: ");
+            //Verificar si el usuario ha dejado el campo en blanco
+            if(!sueldo){
+                alert("Recuede de cada campo debe tener el dato requerido.");
+            }    
+        }
+     //---------------------------------------------------------------------------------------------------------------------------------------------//
+     var dias_tra;
+        while(!dias_tra){
+            dias_tra = prompt("A continuación ingrese el número de días trabajados: ");
+            //Verificar si el usuario ha dejado el campo en blanco
+            if(!dias_tra){
+                alert("Recuede de cada campo debe tener el dato requerido.");
+            }    
+        }
+     //---------------------------------------------------------------------------------------------------------------------------------------------//
+     var horas_ext;
+        while(!horas_ext){
+            horas_ext = prompt("A continuación ingrese el número de horas extra: ");
+            //Verificar si el usuario ha dejado el campo en blanco
+            if(!horas_ext){
+                alert("Recuede de cada campo debe tener el dato requerido.");
+            }    
+        }
+     //---------------------------------------------------------------------------------------------------------------------------------------------//
+        alert("Recuerde que para hacer su reporte mensual debemos incluir el valor de su sistema de salud y de su fondo de pensión.") 
+        alert("Cada uno tiene un valor del 4.5% del valor de su sueldo ingresado.")
+     //---------------------------------------------------------------------------------------------------------------------------------------------//
+    //formulas 
+
+    //valor del dia de trabajo
+    valor_dt = Math.round (sueldo / dias_tra);//el valor del dia es (vdt=s/dt) s=sueldo, vdt=valor dia trabajado y dt=dias trabajado 
+
+    // valor de las horas extras  NOTA: el valor de la hora exta nocturna 9.681,hora extra diurna festiva 11.064,hora extra festiva nocturna 13.830 
+    valor_ht = horas_ext * 6915; //Valor de la hora extra diurna 2024
+    
+    //valor de los descuentos de salud y de fondo de penciones
+    descuento_ss = sueldo * 0.045;//Valor del descuento de sistema de salud del sueldo original
+    descuento_fp = sueldo * 0.045;//valor del desucneto de fondo de pensión del sueldo original 
+    
+    //valor total
+    Sueldo_Total = Math.round(sueldo - descuento_ss - descuento_fp + valor_ht / valor_dt);// sueldo con el valor 
+
+    //Imprimimos el reporte en pantalla
+    alert("Señor " + nombre + " identificado con  " + documento + ".El valor ingresado de su sueldo es: " + sueldo 
+        + " con un total de " + dias_tra+ " días trabajados, tiene un registro de "+ horas_ext + " horas extra acumuladas. Hemos calculado que su valor neto a pagar es de: " + Sueldo_Total)
+
+    alert("El valor del descuento por el sistema de salud es de: "+ descuento_ss 
+        + " .El valor del descuento del fondo de pensión es de: " + descuento_fp 
+        + " El valor del día de trabajo es de: " + valor_dt 
+        + " El valor de las horas trabajas es de: " + valor_ht)
+}
+    </script>
+</head>
+<body>
+</body>
+</html>
